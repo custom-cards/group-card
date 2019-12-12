@@ -2,6 +2,16 @@
 
 Is a simple card that expands a group to a list of entities to be used with `entities`, `glance`, etc. 
 
+## Installation
+
+Use [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins)
+
+```yaml
+resources:
+  url: /local/group-card.js
+  type: module
+```
+
 ## Options
 
 | Name | Type | Default | Description
