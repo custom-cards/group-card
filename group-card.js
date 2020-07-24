@@ -19,7 +19,20 @@ class GroupCard extends HTMLElement {
     const entities = hass.states[config.group].attributes['entity_id'];
     if (!config.card.entities || config.card.entities.length !== entities.length ||
       !config.card.entities.every((value, index) => value.entity === entities[index].entity)) {
-      config.card.entities = entities;
+      if (!config.row) {
+        config.card.entities = entities;
+      }
+      else {      
+        const fmtentities = [];
+        entities.forEach (function (item) {
+          const stateObj = new Object;
+          for (var k in config.row)
+            stateObj[k]=config.row[k];
+          stateObj.entity = item;
+          fmtentities.push (stateObj);
+        });
+        config.card.entities = fmtentities;
+      }
     }
     this.lastChild.setConfig(config.card);
     this.lastChild.hass = hass;
