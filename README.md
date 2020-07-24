@@ -19,6 +19,7 @@ resources:
 | type | string | **Required** | `custom:group-card`
 | card | object | **Required** | Card object 
 | group | string | **Required** | The entity_id of a group
+| row | object | Optional | The additional parameters to be added to each entity object to customize each row.
 
 Card object
 
@@ -37,6 +38,19 @@ Show all with some exceptions:
     type: entities
     title: Group card
   group: group.bedroom
+```
+
+Use the custom light-entity-row for each entity:
+
+```yaml
+- type: custom:group-card
+  card:
+    type: entities
+    title: Group card
+  group: group.bedroom
+  row:
+    type: custom:light-entity-row
+    showColorPicker: true
 ```
 
 ## Credits
