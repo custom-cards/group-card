@@ -19,6 +19,7 @@ resources:
 | type | string | **Required** | `custom:group-card`
 | card | object | **Required** | Card object 
 | group | string | **Required** | The entity_id of a group
+| row | object | Optional | The additional parameters to be added to each entity object to customize each row.
 | entities_vars | object | optional | The entity variables depends of card type use and need to have same device_class
 
 Card object
@@ -55,11 +56,16 @@ Show all with some exceptions:
   group: group.lights
   entities_vars:
     type: light
-```
 
 ```yaml
 - type: custom:group-card
   card:
+    type: entities
+    title: Group card
+  group: group.bedroom
+  row:
+    type: custom:light-entity-row
+    showColorPicker: true
     type: vertical-stack
     title: Temparatures
   group: group.my_sensors
